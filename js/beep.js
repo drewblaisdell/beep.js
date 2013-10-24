@@ -1,16 +1,16 @@
 (function(window){
 	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	this.that = this;
 
 	var beep = beep || function(){
-		this.that = this;
 
-	    this.context = new AudioContext();
-		this.oscillator = context.createOscillator();
-	    this.oscillator.connect(context.destination);
-	    this.oscillator.start(0);
+	    beep.context = beep.context || new AudioContext();
+		beep.oscillator = beep.oscillator || beep.context.createOscillator();
+	    beep.oscillator.connect(beep.context.destination);
+	    beep.oscillator.start(0);
 
 	    setTimeout(function(){
-	    	that.oscillator.stop(0);
+	    	beep.oscillator.disconnect();
 	    }, 300)
 	};
 
