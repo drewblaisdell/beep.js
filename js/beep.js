@@ -3,9 +3,6 @@
 	this.that = this;
 
 	var beep = beep || function(){
-
-	    beep.context = beep.context || new AudioContext();
-		beep.oscillator = beep.oscillator || beep.context.createOscillator();
 	    beep.oscillator.connect(beep.context.destination);
 	    beep.oscillator.start(0);
 
@@ -13,6 +10,9 @@
 	    	beep.oscillator.disconnect();
 	    }, 300)
 	};
+
+    beep.context = beep.context || new AudioContext();
+	beep.oscillator = beep.oscillator || beep.context.createOscillator();
 
 	this.beep = beep;
 
